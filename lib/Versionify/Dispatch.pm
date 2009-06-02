@@ -1,19 +1,19 @@
 package Versionify::Dispatch;
 
-use warnings;
-use strict;
+use Moose;
+use MooseX::FollowPBP;
 use Carp;
 
 use version; our $VERSION = qv('0.0.1');
 
-# Other recommended modules (uncomment to use):
-#  use IO::Prompt;
-#  use Perl6::Export;
-#  use Perl6::Slurp;
-#  use Perl6::Say;
+has 'default_version' => (
+    is  => 'rw',
+    isa => 'Str',
+);
 
 
-# Module implementation here
+no Moose;
+__PACKAGE__->meta->make_immutable;
 
 
 1; # Magic true value required at end of module
@@ -21,7 +21,7 @@ __END__
 
 =head1 NAME
 
-Versionify::Dispatch - [One line description of module's purpose here]
+Versionify::Dispatch - A function dispatcher that respects versions, with fallback.
 
 
 =head1 VERSION
