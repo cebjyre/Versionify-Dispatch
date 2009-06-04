@@ -3,6 +3,7 @@ package Versionify::Dispatch;
 use Moose;
 use MooseX::FollowPBP;
 use Carp;
+use Sort::Versions;
 
 use version; our $VERSION = qv('0.0.1');
 
@@ -11,6 +12,31 @@ has 'default_version' => (
     isa => 'Str',
 );
 
+has 'function' => (
+    is  => 'rw',
+    isa => 'HashRef[CodeRef]',
+    reader  => '_get_function',
+);
+
+sub get_function {
+    my $self = shift;
+    my $version = shift;
+    
+    $version ||= $self->get_default_version;
+    
+    my $function_lookup_ref = $self->_get_function;
+    if($version)
+    {
+        my $matching_function = $function_lookup_ref->{$version};
+        return $matching_function if $matching_function;
+    }
+    my @available_versions = keys %$function_lookup_ref;
+    @available_versions = grep {versioncmp($version, $_) > 0} @available_versions if $version;
+    @available_versions = sort {versioncmp($a, $b)} @available_versions;
+    croak 'No valid functions stored' unless @available_versions;
+    
+    return $function_lookup_ref->{$available_versions[-1]};
+}
 
 no Moose;
 __PACKAGE__->meta->make_immutable;
