@@ -1,0 +1,7 @@
+^\.project$
+^\.git
+^_build
+^blib
+^Build$
+^MANIFEST\.SKIP$
+\.bak$
