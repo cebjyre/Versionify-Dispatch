@@ -8,6 +8,9 @@ license: perl
 resources:
   license: http://dev.perl.org/licenses/
 requires:
+  Moose: 0
+  MooseX::FollowPBP: 0
+  Sort::Versions: 0
   Test::More: 0
   version: 0
 provides:
