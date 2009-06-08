@@ -14,6 +14,9 @@ my $builder = Module::Build->new(
         'MooseX::FollowPBP' => 0,
         'Sort::Versions'    => 0,
     },
+    build_requires => {
+        'Readonly'          => 0,
+    },
     add_to_cleanup      => [ 'Versionify-Dispatch-*' ],
 );
 
