@@ -1,5 +1,8 @@
 Revision history for Versionify-Dispatch
 
+0.0.2  Mon Jun  8 2009
+       Install/test fixes for issues raised by cpan-testers automatic testing
+
 0.0.1  Sun Jun  7 2009
        Initial release.
 
