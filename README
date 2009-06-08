@@ -1,4 +1,4 @@
-Versionify-Dispatch version 0.0.2
+Versionify-Dispatch version 0.0.3
 
 This module is designed to allow a version friendly approach to dispatching
 function calls. One possible use of this is in an API situation, where the
@@ -16,10 +16,13 @@ To install this module, run the following commands:
 
 DEPENDENCIES
 
-Moose;
-MooseX::FollowPBP;
-Sort::Versions;
+Moose
+MooseX::FollowPBP
+Sort::Versions
 
+Build/testing Dependencies
+
+Readonly
 
 COPYRIGHT AND LICENCE
 
