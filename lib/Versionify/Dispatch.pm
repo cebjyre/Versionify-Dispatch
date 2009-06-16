@@ -78,6 +78,12 @@ This document describes Versionify::Dispatch version 0.0.3
         }
     );
     
+    $dispatcher->register({
+        1.8 => sub {
+            ...
+        }
+    });
+    
     $dispatcher->get_function($desired_version)->(@args);
 
 
@@ -119,6 +125,14 @@ will remove any existing mapping.>
 
 Sets the default version to be used when no version is explicitly set in
 the C<get_function> call.
+
+=item register
+
+    $dispatcher->register(\%function_mapping)
+
+Registers additional version -> function mappings. This does not remove existing
+mappings, except when a version conflict arises - the newly registered function
+takes precedence.
 
 =item get_function
 
