@@ -1,6 +1,6 @@
 ---
 name: Versionify-Dispatch
-version: 0.0.3
+version: 0.1.0
 author:
   - 'Glenn Fowler <cebjyre@cpan.org>'
 abstract: 'A function dispatcher that respects versions, with fallback.'
@@ -18,7 +18,7 @@ build_requires:
 provides:
   Versionify::Dispatch:
     file: lib/Versionify/Dispatch.pm
-    version: 0.0.3
+    version: 0.1.0
 generated_by: Module::Build version 0.33
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
