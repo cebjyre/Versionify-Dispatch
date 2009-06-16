@@ -39,10 +39,10 @@ is($dispatcher->get_function(1.6)->(), $RETURN_VAL_1, 'set_function has complete
 
 $dispatcher->register(
 	1.16 => sub {return $RETURN_VAL_3},
-	1.23 => \&func,
+	1.23 => $func_ref,
 );
 is($dispatcher->get_function(1.16)->(), $RETURN_VAL_3, 'Dispatcher registers new function and uses them correctly');
 $dispatcher->set_default_version(1.25);
-is($dispatcher->get_function()->(), $RETURN_VAL_1, 'Dispatcher registers new function and uses them correctly (with fallback from default)');
+is($dispatcher->get_function()->(), $RETURN_VAL_2, 'Dispatcher registers new function and uses them correctly (with fallback from default)');
 is($dispatcher->get_function(1.5)->(), $RETURN_VAL_1, 'Newly registered functions do not interfere with previously registered functions');
 

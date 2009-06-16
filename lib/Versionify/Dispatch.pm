@@ -47,7 +47,7 @@ sub register{
     my @new_function_versions = keys %functions_to_register;
     
     @function_lookup{@new_function_versions} = @functions_to_register{@new_function_versions};
-    $self->set_function(%function_lookup);
+    $self->set_function(\%function_lookup);
 }
 
 no Moose;
