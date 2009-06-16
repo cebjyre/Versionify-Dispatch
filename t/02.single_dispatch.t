@@ -1,4 +1,4 @@
-use Test::More tests => 10;
+use Test::More tests => 11;
 
 BEGIN {
 use_ok( 'Versionify::Dispatch' );
@@ -33,6 +33,9 @@ $dispatcher->set_default_version(1.5);
 is($dispatcher->get_function()->(), $RETURN_VAL_2, 'Dispatcher uses the default version (if set) when no version is provided');
 is($dispatcher->get_function(1.11)->(), $RETURN_VAL_1, 'Dispatcher ignores the default version when a version number is provided');
 is($dispatcher->get_function(1.6)->(), $RETURN_VAL_2, 'Dispatcher returns the highest version function less than the provided one if not an exact match');
+
+$dispatcher->set_function({1.1 => \&func});
+is($dispatcher->get_function(1.6)->(), $RETURN_VAL_1, 'set_function has completely replaced the previously stored lookups');
 
 $dispatcher->register(
 	1.16 => sub {return $RETURN_VAL_3},

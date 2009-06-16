@@ -16,6 +16,7 @@ has 'function' => (
     is  => 'rw',
     isa => 'HashRef[CodeRef]',
     reader  => '_get_function',
+    writer  => 'set_function',
 );
 
 sub get_function {
