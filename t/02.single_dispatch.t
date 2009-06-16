@@ -1,4 +1,4 @@
-use Test::More tests => 7;
+use Test::More tests => 10;
 
 BEGIN {
 use_ok( 'Versionify::Dispatch' );
@@ -10,6 +10,7 @@ use Readonly;
 
 Readonly my $RETURN_VAL_1 => 'Hello world';
 Readonly my $RETURN_VAL_2 => 'hi';
+Readonly my $RETURN_VAL_3 => 3.14159;
 
 sub func {
 	return $RETURN_VAL_1;
@@ -32,3 +33,13 @@ $dispatcher->set_default_version(1.5);
 is($dispatcher->get_function()->(), $RETURN_VAL_2, 'Dispatcher uses the default version (if set) when no version is provided');
 is($dispatcher->get_function(1.11)->(), $RETURN_VAL_1, 'Dispatcher ignores the default version when a version number is provided');
 is($dispatcher->get_function(1.6)->(), $RETURN_VAL_2, 'Dispatcher returns the highest version function less than the provided one if not an exact match');
+
+$dispatcher->register(
+	1.16 => sub {return $RETURN_VAL_3},
+	1.23 => \&func,
+);
+is($dispatcher->get_function(1.16)->(), $RETURN_VAL_3, 'Dispatcher registers new function and uses them correctly');
+$dispatcher->set_default_version(1.25);
+is($dispatcher->get_function()->(), $RETURN_VAL_1, 'Dispatcher registers new function and uses them correctly (with fallback from default)');
+is($dispatcher->get_function(1.5)->(), $RETURN_VAL_1, 'Newly registered functions do not interfere with previously registered functions');
+

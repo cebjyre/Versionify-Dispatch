@@ -38,6 +38,17 @@ sub get_function {
     return $function_lookup_ref->{$available_versions[-1]};
 }
 
+sub register{
+    my $self = shift;
+    my %functions_to_register = @_;
+    
+    my %function_lookup = %{$self->_get_function};
+    my @new_function_versions = keys %functions_to_register;
+    
+    @function_lookup{@new_function_versions} = @functions_to_register{@new_function_versions};
+    $self->set_function(%function_lookup);
+}
+
 no Moose;
 __PACKAGE__->meta->make_immutable;
 
