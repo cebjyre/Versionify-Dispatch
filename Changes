@@ -1,4 +1,6 @@
 Revision history for Versionify-Dispatch
+?.?.?  ?
+       Fixed the problem where the set_function method didn't exist
 
 0.0.3  Tue Jun  9 2009
        Marking the author tests as such.
