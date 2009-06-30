@@ -1,4 +1,4 @@
-use Test::More tests => 11;
+use Test::More tests => 12;
 
 BEGIN {
 use_ok( 'Versionify::Dispatch' );
@@ -45,4 +45,8 @@ is($dispatcher->get_function(1.16)->(), $RETURN_VAL_3, 'Dispatcher registers new
 $dispatcher->set_default_version(1.25);
 is($dispatcher->get_function()->(), $RETURN_VAL_2, 'Dispatcher registers new function and uses them correctly (with fallback from default)');
 is($dispatcher->get_function(1.5)->(), $RETURN_VAL_1, 'Newly registered functions do not interfere with previously registered functions');
+
+$dispatcher->set_function({});
+eval {$dispatcher->get_function()};
+like($@, qr/^No valid functions stored/, 'set_function removes the old registered functions');
 
