@@ -107,7 +107,7 @@ the default version is used (if set), otherwise the maximum version is used.
 
     $dispatcher = Versionify::Dispatch->new(default_version => $some_version, function => \%function_mapping);
 
-The constructor, whic has two named parameters - the default version, and a
+The constructor, which has two named parameters - the default version, and a
 hashref of the version to function mapping. Both parameters are optional, but
 calling C<get_function> without having initialised the function mapping
 (either in the constructor, or in C<set_function>) will not work well.
