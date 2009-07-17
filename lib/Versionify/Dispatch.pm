@@ -43,7 +43,8 @@ sub register{
     my $self = shift;
     my %functions_to_register = @_;
     
-    my %function_lookup = %{$self->_get_function};
+    my $function_lookup_ref = $self->_get_function;
+    my %function_lookup = $function_lookup_ref ? %$function_lookup_ref : ();
     my @new_function_versions = keys %functions_to_register;
     
     @function_lookup{@new_function_versions} = @functions_to_register{@new_function_versions};
