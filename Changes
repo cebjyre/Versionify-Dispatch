@@ -1,5 +1,7 @@
 Revision history for Versionify-Dispatch
 
+       Fixed typos in POD
+
 0.1.0  Tue Jun 16 2009
        Fixed the problem where the set_function method didn't exist
        Added the register method for politely adding new version -> function
