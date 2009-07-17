@@ -5,7 +5,7 @@ use MooseX::FollowPBP;
 use Carp;
 use Sort::Versions;
 
-use version; our $VERSION = qv('0.1.0');
+use version; our $VERSION = qv('0.2.0');
 
 has 'default_version' => (
     is  => 'rw',

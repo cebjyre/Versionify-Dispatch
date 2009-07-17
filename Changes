@@ -1,6 +1,8 @@
 Revision history for Versionify-Dispatch
 
-       Fixed typos in POD
+0.2.0  Fri Jul 17 2009
+       Fixed register method to work when no function mapping already existed
+       Fixed typos and errors in POD
 
 0.1.0  Tue Jun 16 2009
        Fixed the problem where the set_function method didn't exist
