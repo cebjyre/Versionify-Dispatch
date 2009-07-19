@@ -5,7 +5,7 @@ use MooseX::FollowPBP;
 use Carp;
 use Sort::Versions;
 
-use version; our $VERSION = qv('0.1.0');
+use version; our $VERSION = qv('0.2.0');
 
 has 'default_version' => (
     is  => 'rw',
@@ -43,7 +43,8 @@ sub register{
     my $self = shift;
     my %functions_to_register = @_;
     
-    my %function_lookup = %{$self->_get_function};
+    my $function_lookup_ref = $self->_get_function;
+    my %function_lookup = $function_lookup_ref ? %$function_lookup_ref : ();
     my @new_function_versions = keys %functions_to_register;
     
     @function_lookup{@new_function_versions} = @functions_to_register{@new_function_versions};
@@ -78,11 +79,11 @@ This document describes Versionify::Dispatch version 0.1.0
         }
     );
     
-    $dispatcher->register({
+    $dispatcher->register(
         1.8 => sub {
             ...
         }
-    });
+    );
     
     $dispatcher->get_function($desired_version)->(@args);
 
@@ -107,7 +108,7 @@ the default version is used (if set), otherwise the maximum version is used.
 
     $dispatcher = Versionify::Dispatch->new(default_version => $some_version, function => \%function_mapping);
 
-The constructor, whic has two named parameters - the default version, and a
+The constructor, which has two named parameters - the default version, and a
 hashref of the version to function mapping. Both parameters are optional, but
 calling C<get_function> without having initialised the function mapping
 (either in the constructor, or in C<set_function>) will not work well.
@@ -128,7 +129,7 @@ the C<get_function> call.
 
 =item register
 
-    $dispatcher->register(\%function_mapping)
+    $dispatcher->register(%function_mapping)
 
 Registers additional version -> function mappings. This does not remove existing
 mappings, except when a version conflict arises - the newly registered function

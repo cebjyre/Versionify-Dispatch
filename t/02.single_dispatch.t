@@ -1,4 +1,4 @@
-use Test::More tests => 12;
+use Test::More tests => 13;
 
 BEGIN {
 use_ok( 'Versionify::Dispatch' );
@@ -50,3 +50,8 @@ $dispatcher->set_function({});
 eval {$dispatcher->get_function()};
 like($@, qr/^No valid functions stored/, 'set_function removes the old registered functions');
 
+my $new_dispatcher = Versionify::Dispatch->new();
+$new_dispatcher->register(
+	1.0 => $func_ref,
+);
+is($new_dispatcher->get_function()->(), $RETURN_VAL_2, 'Dispatcher registers new function and uses them correctly when no functions had been set before first register() call');
