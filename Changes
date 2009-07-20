@@ -1,5 +1,9 @@
 Revision history for Versionify-Dispatch
 
+0.2.1  Mon Jul 20 2009
+       Improved test coverage
+       Fixed version number in POD
+
 0.2.0  Fri Jul 17 2009
        Fixed register method to work when no function mapping already existed
        Fixed typos and errors in POD

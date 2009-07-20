@@ -5,7 +5,7 @@ use MooseX::FollowPBP;
 use Carp;
 use Sort::Versions;
 
-use version; our $VERSION = qv('0.2.0');
+use version; our $VERSION = qv('0.2.1');
 
 has 'default_version' => (
     is  => 'rw',
@@ -65,7 +65,7 @@ Versionify::Dispatch - A function dispatcher that respects versions, with fallba
 
 =head1 VERSION
 
-This document describes Versionify::Dispatch version 0.1.0
+This document describes Versionify::Dispatch version 0.2.1
 
 
 =head1 SYNOPSIS
