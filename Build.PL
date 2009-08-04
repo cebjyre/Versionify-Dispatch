@@ -8,13 +8,13 @@ my $builder = Module::Build->new(
     dist_author         => 'Glenn Fowler <cebjyre@cpan.org>',
     dist_version_from   => 'lib/Versionify/Dispatch.pm',
     requires => {
-        'Test::More'        => 0,
         'version'           => 0,
         'Moose'             => 0,
         'MooseX::FollowPBP' => 0,
         'Sort::Versions'    => 0,
     },
     build_requires => {
+        'Test::More'        => 0,
         'Readonly'          => 0,
     },
     add_to_cleanup      => [ 'Versionify-Dispatch-*' ],
