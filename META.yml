@@ -1,6 +1,6 @@
 ---
 name: Versionify-Dispatch
-version: v0.2.1
+version: v0.2.2
 author:
   - 'Glenn Fowler <cebjyre@cpan.org>'
 abstract: 'A function dispatcher that respects versions, with fallback.'
@@ -9,18 +9,18 @@ resources:
   license: http://dev.perl.org/licenses/
 build_requires:
   Readonly: 0
+  Test::More: 0
 requires:
   Moose: 0
   MooseX::FollowPBP: 0
   Sort::Versions: 0
-  Test::More: 0
   version: 0
 configure_requires:
   Module::Build: 0.34
 provides:
   Versionify::Dispatch:
     file: lib/Versionify/Dispatch.pm
-    version: v0.2.1
+    version: v0.2.2
 generated_by: Module::Build version 0.34
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html

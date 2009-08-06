@@ -1,5 +1,8 @@
 Revision history for Versionify-Dispatch
 
+0.2.2  Thu Aug  6 2009
+       Changed Test::More from a runtime to a buildtime dependency
+
 0.2.1  Mon Jul 20 2009
        Improved test coverage
        Fixed version number in POD
