@@ -1,4 +1,4 @@
-Versionify-Dispatch version 0.2.0
+Versionify-Dispatch version 0.2.3
 
 This module is designed to allow a version friendly approach to dispatching
 function calls. One possible use of this is in an API situation, where the
@@ -23,6 +23,7 @@ Sort::Versions
 Build/testing Dependencies
 
 Readonly
+Test::More
 
 COPYRIGHT AND LICENCE
 

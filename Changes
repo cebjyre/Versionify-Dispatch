@@ -1,5 +1,9 @@
 Revision history for Versionify-Dispatch
 
+0.2.3  Sun Aug  9 2009
+       Version consistency (README file was old)
+       Recorded Test::More as a dependency in the README file
+
 0.2.2  Thu Aug  6 2009
        Changed Test::More from a runtime to a buildtime dependency
 
