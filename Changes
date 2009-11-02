@@ -1,5 +1,10 @@
 Revision history for Versionify-Dispatch
 
+0.2.4  Mon Nov  2 2009
+       Removed Readonly as a test dependency
+       Added repository metadata
+       Added version consistency author test
+
 0.2.3  Sun Aug  9 2009
        Version consistency (README file was old)
        Recorded Test::More as a dependency in the README file
