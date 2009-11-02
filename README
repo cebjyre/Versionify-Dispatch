@@ -22,7 +22,6 @@ Sort::Versions
 
 Build/testing Dependencies
 
-Readonly
 Test::More
 
 COPYRIGHT AND LICENCE

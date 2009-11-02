@@ -6,9 +6,9 @@ use_ok( 'Versionify::Dispatch' );
 
 diag('Setting up and using a single dispatcher');
 
-my $RETURN_VAL_1 => 'Hello world';
-my $RETURN_VAL_2 => 'hi';
-my $RETURN_VAL_3 => 3.14159;
+my $RETURN_VAL_1 = 'Hello world';
+my $RETURN_VAL_2 = 'hi';
+my $RETURN_VAL_3 = 3.14159;
 
 sub func {
     return $RETURN_VAL_1;

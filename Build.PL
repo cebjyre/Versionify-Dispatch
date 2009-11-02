@@ -15,7 +15,6 @@ my $builder = Module::Build->new(
     },
     build_requires => {
         'Test::More'        => 0,
-        'Readonly'          => 0,
     },
     add_to_cleanup      => [ 'Versionify-Dispatch-*' ],
 );
