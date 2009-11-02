@@ -16,6 +16,11 @@ my $builder = Module::Build->new(
     build_requires => {
         'Test::More'        => 0,
     },
+    meta_merge => {
+        resources => {
+            repository  => 'http://github.com/cebjyre/Versionify-Dispatch',
+        },
+    },
     add_to_cleanup      => [ 'Versionify-Dispatch-*' ],
 );
 
